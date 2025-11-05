@@ -3,7 +3,6 @@ services:
     name: infohub-server
     rootDir: server
     runtime: node
-    plan: free
     buildCommand: "npm install"
     startCommand: "npm start"
     envVars:
@@ -16,7 +15,6 @@ services:
     runtime: static
     buildCommand: "npm install && npm run build"
     staticPublishPath: "dist"
-    plan: free
     envVars:
       - key: VITE_API_BASE
         value: ""
