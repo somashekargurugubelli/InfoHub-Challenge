@@ -1,16 +1,20 @@
-import { useState, useEffect } from "react"
-import axios from "axios"
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+const base = import.meta.env.VITE_API_BASE || "";
 
 export default function CurrencyConverter() {
-  const [amount, setAmount] = useState(100)
-  const [data, setData] = useState(null)
+  const [amount, setAmount] = useState(100);
+  const [data, setData] = useState(null);
 
   const convert = async () => {
-    const res = await axios.get(`/api/currency?amount=${amount}`)
-    setData(res.data)
-  }
+    const res = await axios.get(`${base}/api/currency?amount=${amount}`);
+    setData(res.data);
+  };
 
-  useEffect(() => { convert() }, [])
+  useEffect(() => {
+    convert();
+  }, []);
 
   return (
     <div>
@@ -34,5 +38,5 @@ export default function CurrencyConverter() {
         </p>
       )}
     </div>
-  )
+  );
 }

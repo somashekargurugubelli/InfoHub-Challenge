@@ -1,15 +1,19 @@
-import { useState, useEffect } from "react"
-import axios from "axios"
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+const base = import.meta.env.VITE_API_BASE || "";
 
 export default function QuoteGenerator() {
-  const [quote, setQuote] = useState("")
+  const [quote, setQuote] = useState("");
 
   const loadQuote = async () => {
-    const res = await axios.get("/api/quote")
-    setQuote(res.data.quote)
-  }
+    const res = await axios.get(`${base}/api/quote`);
+    setQuote(res.data.quote);
+  };
 
-  useEffect(() => { loadQuote() }, [])
+  useEffect(() => {
+    loadQuote();
+  }, []);
 
   return (
     <div>
@@ -19,5 +23,5 @@ export default function QuoteGenerator() {
         New Quote
       </button>
     </div>
-  )
+  );
 }
