@@ -1,4 +1,4 @@
-# InfoHub — Full‑Stack (React + Express) — No API Keys
+# InfoHub — Full‑Stack (React + Express) 
 
 A single‑page app with three live utilities, all using **free, no‑key** public APIs:
 
